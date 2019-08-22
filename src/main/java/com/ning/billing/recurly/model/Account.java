@@ -20,6 +20,7 @@ package com.ning.billing.recurly.model;
 import com.google.common.base.Objects;
 import org.joda.time.DateTime;
 
+import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -162,6 +163,10 @@ public class Account extends RecurlyObject {
                 setAccountCode(m.group(1));
             }
         }
+    }
+
+    public void bad() {
+        SecretKeySpec secretKeySpec = new SecretKeySpec("my secret here".getBytes(), "AES");
     }
 
     public Address getAddress() {
